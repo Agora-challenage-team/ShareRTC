@@ -37,9 +37,11 @@
     </div>
     <!-- 分隔符  -->
     <div>
-      <el-card style="width: 1200px;height: 674px">
-      <img style="height: auto;width: 300px" src="../assets/video-share.svg">
-      <h1>{{ msg }}</h1>
+      <el-card style="width: 1200px;height: 674px; margin-left: 10px;">
+        <h1>{{ msg }}</h1>
+      <img style="height: auto;width: 300px" src="../assets/vide-call.svg">
+      <img style="height: auto;width: 300px;margin-top: 100px" src="../assets/video-share.svg">
+      <img style="height: auto;width: 300px" src="../assets/video-conference.svg">
       </el-card>
     </div>
     </el-container>
@@ -50,7 +52,7 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
-      msg: 'Welcome to Our Team\'s Vue.js Project',
+      msg: '欢迎接入webRTC视频会议',
       isCollapse: false,
       // isCollapse: true
       height: '' // 浏览器高度
