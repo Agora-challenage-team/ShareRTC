@@ -1,33 +1,22 @@
 <template>
-  <div class="home">
+  <el-container>
     <div class="left">
     <!-- 白色侧边栏  -->
     <el-row class="tac">
       <el-col :span="12">
-        <h5>默认颜色</h5>
+        <h5>自定义颜色</h5>
         <el-menu
           default-active="2"
           class="el-menu-vertical-demo"
           @open="handleOpen"
-          @close="handleClose">
-          <el-submenu index="1">
-            <template slot="title">
-              <i class="el-icon-location"></i>
-              <span>导航一</span>
-            </template>
-            <el-menu-item-group>
-              <template slot="title">分组一</template>
-              <el-menu-item index="1-1">选项1</el-menu-item>
-              <el-menu-item index="1-2">选项2</el-menu-item>
-            </el-menu-item-group>
-            <el-menu-item-group title="分组2">
-              <el-menu-item index="1-3">选项3</el-menu-item>
-            </el-menu-item-group>
-            <el-submenu index="1-4">
-              <template slot="title">选项4</template>
-              <el-menu-item index="1-4-1">选项1</el-menu-item>
-            </el-submenu>
-          </el-submenu>
+          @close="handleClose"
+          background-color="#545c64"
+          text-color="#fff"
+          active-text-color="#ffd04b">
+          <el-menu-item index="1">
+            <i class="el-icon-menu"></i>
+            <span slot="title">导航一</span>
+          </el-menu-item>
           <el-menu-item index="2">
             <i class="el-icon-menu"></i>
             <span slot="title">导航二</span>
@@ -44,12 +33,14 @@
       </el-col>
     </el-row>
     </div>
-<!--    分隔符-->
+    <!-- 分隔符  -->
     <div>
-      <img style="height: auto;width: 300px;margin-top: -900px" src="../assets/video-share.svg">
+      <el-card style="width: 800px;height: 500px">
+      <img style="height: auto;width: 300px" src="../assets/video-share.svg">
       <h1>{{ msg }}</h1>
+      </el-card>
     </div>
-  </div>
+    </el-container>
 </template>
 
 <script>
@@ -57,7 +48,17 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
-      msg: 'Welcome to Our Team\'s Vue.js Project'
+      msg: 'Welcome to Our Team\'s Vue.js Project',
+      isCollapse: false
+      // isCollapse: true
+    }
+  },
+  methods: {
+    handleOpen (key, keyPath) {
+      console.log(key, keyPath)
+    },
+    handleClose (key, keyPath) {
+      console.log(key, keyPath)
     }
   }
 }
@@ -83,5 +84,11 @@ a {
   .left{
     width: 500px;
     height: auto;
+    border: 1px solid black
   }
+/*侧边栏样式*/
+.el-menu-vertical-demo:not(.el-menu--collapse) {
+  width: 200px;
+  min-height: 400px;
+}
 </style>
