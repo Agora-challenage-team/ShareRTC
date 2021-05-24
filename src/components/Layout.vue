@@ -1,10 +1,11 @@
 <template>
   <el-container>
     <div class="left">
+      <el-card>
     <!-- 白色侧边栏  -->
     <el-row class="tac">
       <el-col :span="12">
-        <h5>自定义颜色</h5>
+<!--        <h5>自定义颜色</h5>-->
         <el-menu
           default-active="2"
           class="el-menu-vertical-demo"
@@ -32,10 +33,11 @@
         </el-menu>
       </el-col>
     </el-row>
+      </el-card>
     </div>
     <!-- 分隔符  -->
     <div>
-      <el-card style="width: 800px;height: 500px">
+      <el-card style="width: 1200px;height: 674px">
       <img style="height: auto;width: 300px" src="../assets/video-share.svg">
       <h1>{{ msg }}</h1>
       </el-card>
@@ -49,9 +51,15 @@ export default {
   data () {
     return {
       msg: 'Welcome to Our Team\'s Vue.js Project',
-      isCollapse: false
+      isCollapse: false,
       // isCollapse: true
+      height: '' // 浏览器高度
     }
+  },
+  // 初始化函数
+  created () {
+    this.height = document.documentElement.clientHeight
+    // console.log(this.height)
   },
   methods: {
     handleOpen (key, keyPath) {
@@ -66,6 +74,20 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+  /*自定义样式*/
+  .left{
+    width: auto;
+    height: auto;
+    /*border: 1px solid black*/
+  }
+  /*侧边栏样式*/
+  .el-menu-vertical-demo:not(.el-menu--collapse) {
+    width: 200px;
+    /*min-height: 400px;*/
+    min-height: 634px;
+  }
+
+/*  分割线*/
 h1, h2 {
   font-weight: normal;
 }
@@ -79,16 +101,5 @@ li {
 }
 a {
   color: #42b983;
-}
-/*自定义样式*/
-  .left{
-    width: 500px;
-    height: auto;
-    border: 1px solid black
-  }
-/*侧边栏样式*/
-.el-menu-vertical-demo:not(.el-menu--collapse) {
-  width: 200px;
-  min-height: 400px;
 }
 </style>
