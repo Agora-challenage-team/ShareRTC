@@ -16,8 +16,8 @@ export default new Router({
           component:()=>import('@/components/initMsg.vue'),
         },
         {
-          path: 'chatMsg',
-          component:()=>import('@/components/chatMsg'),
+          path: 'userMsg',
+          component:()=>import('@/components/userMsg'),
         },
       ]
     }
