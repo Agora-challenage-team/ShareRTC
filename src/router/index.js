@@ -9,7 +9,17 @@ export default new Router({
     {
       path: '/',
       name: 'Layout',
-      component: HelloWorld
+      component: HelloWorld,
+      children:[
+        {
+          path: 'initMsg',
+          component:()=>import('@/components/initMsg.vue'),
+        },
+        {
+          path: 'chatMsg',
+          component:()=>import('@/components/chatMsg'),
+        },
+      ]
     }
   ]
 })
